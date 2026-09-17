@@ -1,0 +1,18 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.app {
+    display: grid;
+    grid-template-columns: 40% 60%;
+    min-height: 100vh;
+}
+
+.user-form-container {
+    background: #e7dfdf;
+}
+
+.display-users-container {
+    background: #F5F5DC;
+}
