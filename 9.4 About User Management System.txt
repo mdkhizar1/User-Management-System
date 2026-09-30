@@ -1,0 +1,6 @@
+9.3 AWT _ Send token from FE (instead of postman 9.2), verfiy and process req at BE
+
+What you need to learn extra than previous topic 9.1?
+=> receive the token -- LINK
+=> Store token in frontend (local storage)-- LINK
+=> Send token with request -- LINK

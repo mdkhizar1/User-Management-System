@@ -3,7 +3,7 @@ body {
     padding: 0;
 }
 
-.app {
+.dashboard {
     display: grid;
     grid-template-columns: 40% 60%;
     min-height: 100vh;

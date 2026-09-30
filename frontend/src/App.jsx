@@ -1,8 +1,10 @@
 import { useState, useRef } from "react";
-
+import { Routes, Route } from "react-router-dom";
 import "./App.css";
 import { UserForm } from "../components/user-form/UserForm";
 import DisplayUsers from "../components/display-users/DisplayUsers";
+import SignInUp from "../components/sign-in-up/SignInUp";
+import Navbar from "../components/navbar/navbar";
 import axios from "axios";
 
 function App() {
@@ -32,34 +34,46 @@ function App() {
 
   return (
     <>
-      <div className="app">
-        <div className="user-form-container">
-          <UserForm
-            getUsers={getUsers}
-            formMode={formMode}
-            setFormMode={setFormMode}
-            nameRef={nameRef}
-            emailRef={emailRef}
-            passRef={passRef}
-            record_Id={record_Id}
-            set_Record_Id={set_Record_Id}
-          />
-        </div>
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<SignInUp />} />
+        <Route path="/sign-in-up" element={<SignInUp />} />
+        <Route
+          path="/dashboard"
+          element={
+            <div className="dashboard">
+              <div className="user-form-container">
+                <UserForm
+                  getUsers={getUsers}
+                  formMode={formMode}
+                  setFormMode={setFormMode}
+                  nameRef={nameRef}
+                  emailRef={emailRef}
+                  passRef={passRef}
+                  record_Id={record_Id}
+                  set_Record_Id={set_Record_Id}
+                />
+              </div>
 
-        <div className="display-users-container">
-          <DisplayUsers
-            userData={userData}
-            getUsers={getUsers}
-            setFormMode={setFormMode}
-            formMode={formMode}
-            nameRef={nameRef}
-            emailRef={emailRef}
-            passRef={passRef}
-            record_Id={record_Id}
-            set_Record_Id={set_Record_Id}
-          />
-        </div>
-      </div>
+              <div className="display-users-container">
+                <DisplayUsers
+                  userData={userData}
+                  getUsers={getUsers}
+                  setFormMode={setFormMode}
+                  formMode={formMode}
+                  nameRef={nameRef}
+                  emailRef={emailRef}
+                  passRef={passRef}
+                  record_Id={record_Id}
+                  set_Record_Id={set_Record_Id}
+                />
+              </div>
+            </div>
+          }
+        />
+      </Routes>
+
+      {/* Dashboard */}
     </>
   );
 }
