@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import "./DisplayUsers.css";
-import axios from "axios";
+// import axios from "axios";
 import deleteUser from "./deleteUser";
 // import updateUser from "./updateUser";
 
@@ -70,10 +70,10 @@ export default function DisplayUsers({
                 <td>{user.password}</td>
                 <td>
                   <button
-                    className="update"
+                    className="update-btn"
                     onClick={() => {
                       setFormMode("edit");
-                      updateUser(user);
+                      updateUser(user, getUsers);
                     }}
                   >
                     Update
@@ -81,7 +81,7 @@ export default function DisplayUsers({
                 </td>
                 <td>
                   <button
-                    className="delete"
+                    className="delete-btn"
                     onClick={() => {
                       deleteUser(user._id, getUsers, setFormMode);
                     }}

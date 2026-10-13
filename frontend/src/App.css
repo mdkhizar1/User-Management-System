@@ -3,7 +3,37 @@ body {
     padding: 0;
 }
 
-.app {
+.dashboard-navbar {
+    width: 100%;
+    background-color: #333;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 5px;
+}
+
+span {
+    color: white;
+}
+
+button {
+    padding: 8px 16px;
+    border-radius: 5px;
+    border: 0.5px solid black;
+    color: white;
+}
+
+#logout-btn {
+    background-color: #FF2929;
+    margin: 5px 10px;
+    /* color: white; */
+}
+
+#logout-btn:hover {
+    background-color: gray;
+}
+
+.dashboard {
     display: grid;
     grid-template-columns: 40% 60%;
     min-height: 100vh;

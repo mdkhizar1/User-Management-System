@@ -3,7 +3,9 @@ import axios from "axios";
 export default function deleteUser(user_id, getUsers) {
     const URL = `http://localhost:5000/user/removeOneUser/${user_id}`;
 
-    axios.delete(URL).then((data) => {
+    const savedToken = localStorage.getItem("token");
+
+    axios.delete(URL, { headers: { Authorization: `Bearer ${savedToken}` } }).then((data) => {
         console.log("Data deleted successfully!");
         console.log("Success message: ", data);
         getUsers()

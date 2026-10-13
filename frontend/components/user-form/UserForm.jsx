@@ -13,7 +13,6 @@ export function UserForm({
   record_Id,
   set_Record_Id,
 }) {
-
   // Form Handler
   function formSubmit() {
     event.preventDefault();
@@ -26,9 +25,14 @@ export function UserForm({
         password: passRef.current.value,
       };
 
+      const savedToken = localStorage.getItem("token");
       // Create a New User in Database
       axios
-        .post("http://localhost:5000/user/addOneUser", newUser)
+        .post("http://localhost:5000/user/addOneUser", newUser, {
+          headers: {
+            Authorization: `Bearer ${savedToken}`,
+          },
+        })
         .then((res) => {
           // console.log(res.data); // NOTE: Its compulsary to write and use res prop
           // console.log("data sent successfully");
@@ -64,9 +68,14 @@ export function UserForm({
 
       // 5. make put/update request using that object
       const URL = `http://localhost:5000/user/updateOneUser/${record_Id}`;
-      console.log("URL(frontend): ", URL);
+      const savedToken = localStorage.getItem("token");
+      // console.log("URL(frontend): ", URL);
       axios
-        .put(URL, updateUser)
+        .put(URL, updateUser, {
+          headers: {
+            Authorization: `Bearer ${savedToken}`,
+          },
+        })
         .then((response) => {
           console.log("Data successfully updated:", response.data);
 
@@ -91,8 +100,13 @@ export function UserForm({
   return (
     <>
       <div className="signup-container">
-        <form onSubmit={formSubmit}>
-          <h2 style={{ color: "green", textAlign: "center" }}>
+        <form onSubmit={formSubmit} style={{ border: "1px solid black" }}>
+          <h2
+            style={{
+              color: "green",
+              textAlign: "center",
+            }}
+          >
             {formMode === "add" ? "Add New User" : "Update User"}
           </h2>
           <div>
@@ -127,7 +141,7 @@ export function UserForm({
               ref={passRef}
             />
           </div>
-          <button type="submit">
+          <button type="submit" id="form-btn">
             {formMode === "edit" ? "Update User" : "Add User"}
           </button>
         </form>

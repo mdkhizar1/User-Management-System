@@ -10,8 +10,8 @@ route.put("/sign-up", createUserAccount);
 // URL: http://localhost:5000/auth/sign-up
 
 //Sign-In
-route.get("/sign-in", handleLogin);
-// Request Type: GET
+route.post("/sign-in", handleLogin);
+// Request Type: POST
 // Data as: Req body
 // URL: http://localhost:5000/auth/sign-in
 

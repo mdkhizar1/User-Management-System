@@ -14,20 +14,15 @@ table {
     border-radius: 20px;
 }
 
-.update .delete {
-    padding: 20px 10px;
-    border-radius: 10px;
+
+.update-btn {
+    background-color: #3D3BF3;
 }
 
-.update {
-    background-color: blue;
-}
-
-.delete {
-    background-color: red;
+.delete-btn {
+    background-color: #FF0000;
 }
 
 h2 {
     color: green;
-
 }
